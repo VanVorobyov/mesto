@@ -14,3 +14,35 @@
 @import url(../blocks/profile/__user-subtitle/prosile__user-subtitle.css);
 @import url(../blocks/profile/__button-add/profile__button-add.css);
 @import url(../blocks/profile/__button-add-icon/profile__button-add-icon.css);
+/* Elements */
+@import url(../blocks/elements/elements.css);
+/* Cards */
+@import url(../blocks/cards/cards.css);
+/* Card */
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__info/card__info.css);
+@import url(../blocks/card/__title/card__title.css);
+@import url(../blocks/card/__button/card__button.css);
+@import url(../blocks/card/__icon-empty/card__icon-empty.css);
+@import url(../blocks/card/__icon-active/card__icon-active.css);
+/* footer */
+.footer {
+}
+.copyright {
+}
+/* popup */
+.popup {
+}
+.popup__container {
+}
+.popup_close-button {
+}
+.elem_hidden {
+}
+.popup__title {
+}
+.popup__username {
+}
+.popup__profession {
+}
