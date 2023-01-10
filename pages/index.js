@@ -30,29 +30,15 @@ function editUserInfo(evt) {
   about.textContent = inputAbout.value;
   closePopup();
 }
-// Отправляем форму на сервер
 saveButton.addEventListener('submit', editUserInfo);
-
-// Заготовка для лайка
-// let likeButton = document.querySelector('.card__button');
-// let fillIcon = likeButton.querySelector('.card__icon_fill');
-// let emptyIcon = likeButton.querySelector('.card__icon_empty');
-
-// likeButton.addEventListener('click', () => {
-//   emptyIcon.classList.toggle('card__icon_active');
-//   fillIcon.classList.toggle('card__icon_active');
-// });
 
 // Делаем лайки карточкам
 let likeButtons = Array.from(document.querySelectorAll('.card__button'));
-let fillIcons = Array.from(document.querySelectorAll('.card__icon_fill'));
-let emptyIcons = Array.from(document.querySelectorAll('.card__icon_empty'));
+console.log(likeButtons);
 for (let i = 0; i < likeButtons.length; i++) {
   const button = likeButtons[i];
-  const fillIcon = fillIcons[i];
-  const emptyIcon = emptyIcons[i];
   button.addEventListener('click', () => {
-    emptyIcon.classList.toggle('card__icon_active');
-    fillIcon.classList.toggle('card__icon_active');
+    button.classList.toggle('card__button_icon-fill');
+    button.classList.toggle('card__button_icon-empty');
   });
 }
