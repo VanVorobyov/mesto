@@ -8,6 +8,7 @@
   border: none;
   background-color: transparent;
   z-index: 1;
+  cursor: pointer;
 }
 @media screen and (max-width: 580px) {
   .popup__close-button {
