@@ -1,6 +1,7 @@
 .profile__user-subtitle {
   margin: 0;
   display: inline;
+  text-align: justify;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 18px;

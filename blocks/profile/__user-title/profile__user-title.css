@@ -1,5 +1,5 @@
 .profile__user-title {
-  max-width: 350px;
+  max-width: 330px;
   margin: 0;
   display: inline;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -10,6 +10,7 @@
 }
 @media screen and (max-width: 767px) {
   .profile__user-title {
+    max-width: 230px;
     font-size: 27px;
     line-height: 33px;
   }
