@@ -18,4 +18,4 @@
 
 Также реализовано отображение поставленного лайка на карточке места.
 
-Ссылка на GitHub Pages.
+Ссылка на GitHub Pages https://vanvorobyov.github.io/mesto/index.html
