@@ -2,4 +2,8 @@
   display: none;
   width: inherit;
   height: inherit;
+  transition: opacity 0.5s ease;
+}
+.card__icon:hover {
+  opacity: 0.5;
 }

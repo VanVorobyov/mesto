@@ -1,6 +1,7 @@
 .profile__button-edit {
-  width: 23px;
-  height: 23px;
+  max-width: 23px;
+  width: 100%;
+  min-height: 23px;
   padding: 0;
   border: none;
   font: inherit;
@@ -14,7 +15,7 @@
 }
 @media screen and (max-width: 767px) {
   .profile__button-edit {
-    width: 18px;
-    height: 18px;
+    max-width: 18px;
+    min-height: 18px;
   }
 }

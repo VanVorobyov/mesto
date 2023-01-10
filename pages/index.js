@@ -14,20 +14,22 @@ inputAbout.value = about.textContent;
 editButton.addEventListener('click', (openPopup) => {
   popup.classList.add('popup_opened');
 });
+closebutton.addEventListener('click', closePopup);
 function closePopup() {
   popup.classList.remove('popup_opened');
+  inputUsername.value = username.textContent;
+  inputAbout.value = about.textContent;
 }
-closebutton.addEventListener('click', closePopup);
 
 // Редактируем форму
+// Сохраняем новые значения на сайте
+saveButton.addEventListener('click', editUserInfo);
 function editUserInfo(evt) {
   evt.preventDefault();
   username.textContent = inputUsername.value;
   about.textContent = inputAbout.value;
   closePopup();
 }
-// Сохраняем новые значения на сайте
-saveButton.addEventListener('click', editUserInfo);
 // Отправляем форму на сервер
 saveButton.addEventListener('submit', editUserInfo);
 
@@ -40,6 +42,7 @@ saveButton.addEventListener('submit', editUserInfo);
 //   emptyIcon.classList.toggle('card__icon_active');
 //   fillIcon.classList.toggle('card__icon_active');
 // });
+
 // Делаем лайки карточкам
 let likeButtons = Array.from(document.querySelectorAll('.card__button'));
 let fillIcons = Array.from(document.querySelectorAll('.card__icon_fill'));

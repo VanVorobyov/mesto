@@ -1,6 +1,8 @@
 .profile__button-add {
-  width: 150px;
-  height: 50px;
+  max-width: 150px;
+  width: 100%;
+  min-height: 50px;
+  height: 100%;
   margin-left: auto;
   padding: 0;
   border: none;
@@ -18,6 +20,6 @@
 
 @media screen and (max-width: 767px) {
   .profile__button-add {
-    width: 100%;
+    max-width: inherit;
   }
 }
