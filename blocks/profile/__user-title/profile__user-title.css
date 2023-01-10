@@ -1,4 +1,5 @@
 .profile__user-title {
+  max-width: 350px;
   margin: 0;
   display: inline;
   font-family: 'Inter', Arial, Helvetica, sans-serif;

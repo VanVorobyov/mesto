@@ -12,3 +12,8 @@
 .card__button:hover {
   opacity: 0.5;
 }
+.card__button:before {
+  content: '';
+  display: block;
+  padding-top: 19px;
+}

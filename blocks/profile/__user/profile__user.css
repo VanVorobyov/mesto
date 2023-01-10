@@ -1,5 +1,7 @@
 .profile__user {
-  display: flex;
+  display: -ms-inline-flexbox;
+  display: -webkit-flex;
+  display: inline-flex;
   align-items: baseline;
   gap: 18px;
 }
