@@ -1,6 +1,7 @@
 .card__button_icon-fill {
   background-image: url(../../../../images/heart_icon_active.svg);
-  background-size: contain;
+  background-size: inherit;
+  background-repeat: no-repeat;
 }
 .card__button_icon-fill:hover {
   opacity: 1;
