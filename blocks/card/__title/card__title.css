@@ -1,5 +1,5 @@
 .card__title {
-  max-width: 200px;
+  max-width: calc(100% - 40px);
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-weight: 900;
   font-size: 24px;

@@ -24,5 +24,6 @@
 @media screen and (max-width: 767px) {
   .profile__button-add {
     max-width: inherit;
+    background-size: 19px;
   }
 }

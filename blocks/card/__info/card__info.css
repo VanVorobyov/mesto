@@ -1,6 +1,6 @@
 .card__info {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-end;
   margin: 25px 15px 31px 21px;
 }
