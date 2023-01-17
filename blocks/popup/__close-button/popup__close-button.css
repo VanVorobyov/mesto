@@ -14,7 +14,13 @@
   background-image: url(../../../images/Close\ Icon.svg);
   background-repeat: no-repeat;
   background-size: inherit;
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
+.popup__close-button:hover {
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 580px) {
   .popup__close-button {
     top: -36px;

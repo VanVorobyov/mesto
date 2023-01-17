@@ -22,11 +22,11 @@
       <div class="profile__info">
         <div class="profile__user">
           <h1 class="profile__user-title">Жак-Ив Кусто</h1>
-          <button class="profile__button-edit"></button>
+          <button class="profile__button-edit" type="button"></button>
         </div>
         <p class="profile__user-subtitle">Исследователь океана</p>
       </div>
-      <button class="profile__button-add">
+      <button class="profile__button-add" type="button">
       </button>
     </section>
 
@@ -37,7 +37,7 @@
             class="card__image">
           <div class="card__info">
             <h2 class="card__title">Карачаевск</h2>
-            <button class="card__button card__button_icon-empty">
+            <button class="card__button card__button_icon-empty" type="button">
             </button>
           </div>
         </li>
@@ -45,7 +45,7 @@
           <img src="./images/images__item-elbrus1.jpg" alt="Фото горы Эльбрус на закате" class="card__image">
           <div class="card__info">
             <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__button card__button_icon-empty">
+            <button class="card__button card__button_icon-empty" type="button">
             </button>
           </div>
         </li>
@@ -53,7 +53,7 @@
           <img src="./images/images__item-dombay1.jpg" alt="Фото гор в Домбае" class="card__image">
           <div class="card__info">
             <h2 class="card__title">Домбай</h2>
-            <button class="card__button card__button_icon-empty">
+            <button class="card__button card__button_icon-empty" type="button">
             </button>
           </div>
         </li>
@@ -61,7 +61,7 @@
           <img src="./images/images__item-elbrus2.jpg" alt="Фото с вершины горы Эльбрус" class="card__image">
           <div class="card__info">
             <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__button card__button_icon-empty">
+            <button class="card__button card__button_icon-empty" type="button">
             </button>
           </div>
         </li>
@@ -69,7 +69,7 @@
           <img src="./images/images__item-dombay2.jpg" alt="Фото на вершину горы Добмай" class="card__image">
           <div class="card__info">
             <h2 class="card__title">Домбай</h2>
-            <button class="card__button card__button_icon-empty">
+            <button class="card__button card__button_icon-empty" type="button">
             </button>
           </div>
         </li>
@@ -78,29 +78,32 @@
             class=" card__image">
           <div class="card__info">
             <h2 class="card__title">Карачаево-Черкесская республика</h2>
-            <button class="card__button card__button_icon-empty">
+            <button class="card__button card__button_icon-empty" type="button">
             </button>
           </div>
         </li>
       </ul>
     </section>
-    <footer class="footer">
-      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-    </footer>
   </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+  </footer>
 
   <!-- popup -->
   <div class="popup ">
-    <form action="#" method="post" class="popup__container">
+    <div class="popup__container">
       <button type="button" class="popup__close-button">
       </button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <input class="popup__input-text popup-username" type="text" name="username" placeholder="Имя пользователя">
-      <input class="popup__input-text popup-about" type="text" name="about" value="" placeholder="О себе">
-      <button class="popup__button">Сохранить</button>
-    </form>
+      <form class="popup__form" action="#" method="post" name="user-info">
+        <input class="popup__input popup__input_user-info_username" type="text" name="username"
+          placeholder="Имя пользователя">
+        <input class="popup__input popup__input_user-info_about" type="text" name="about" value="" placeholder="О себе">
+        <button class="popup__button" type="submit">Сохранить</button>
+      </form>
+    </div>
   </div>
-  <script src="./pages/index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
