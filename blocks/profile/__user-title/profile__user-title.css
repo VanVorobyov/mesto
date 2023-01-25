@@ -10,7 +10,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  letter-spacing: 2.4px;
 }
 @media screen and (max-width: 767px) {
   .profile__user-title {
@@ -18,7 +17,6 @@
     max-width: 230px;
     font-size: 27px;
     line-height: 33px;
-    letter-spacing: 1.4px;
     margin: 2px 0 0 29px;
   }
 }

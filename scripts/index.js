@@ -29,5 +29,4 @@ function editUserInfo(evt) {
 // Слушатели событий
 editButton.addEventListener('click', openPopup);
 closebutton.addEventListener('click', closePopup);
-saveButton.addEventListener('click', editUserInfo);
 saveButton.addEventListener('submit', editUserInfo);

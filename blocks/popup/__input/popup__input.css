@@ -7,8 +7,6 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  letter-spacing: 0.8px;
-  word-spacing: -2px;
 }
 .popup__input:last-of-type {
   margin: 0 0 50px;
@@ -16,13 +14,9 @@
 @media screen and (max-width: 580px) {
   .popup__input {
     padding: 0 0 8px;
-    letter-spacing: 0.7px;
-    word-spacing: -2px;
   }
 
   .popup__input:last-of-type {
     margin: 0 0 45px;
-    letter-spacing: 0.7px;
-    word-spacing: -2px;
   }
 }

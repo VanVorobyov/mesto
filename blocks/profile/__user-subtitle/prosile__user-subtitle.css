@@ -11,12 +11,10 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  letter-spacing: 0.6px;
 }
 @media screen and (max-width: 767px) {
   .profile__user-subtitle {
     font-size: 14px;
     line-height: 17px;
-    letter-spacing: 0.44px;
   }
 }

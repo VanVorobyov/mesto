@@ -9,9 +9,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  letter-spacing: 0.9px;
-  word-spacing: -5px;
-
-  /* word-spacing: -7px;
-  letter-spacing: 1.1px; */
 }
