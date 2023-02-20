@@ -4,7 +4,7 @@ const popup = document.querySelectorAll('.popup');
 const closeButtons = document.querySelectorAll('.popup__close-button');
 const cardTemplate = document.querySelector('#card-template').content; // template карточка
 const cards = document.querySelector('.cards'); // Родитель карточек куда будем добавлять карточки
-const popupFormUser = document.querySelector('.popup_form-user');
+const popupFormUser = document.querySelector('.popup__form_user');
 const popupFormCard = document.querySelector('.popup__form_add-card');
 // ------------------Попап редактирования пользователя
 const popupUserInfo = document.querySelector('.popup_user-unfo');
