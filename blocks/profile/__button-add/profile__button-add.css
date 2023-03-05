@@ -16,6 +16,7 @@
   border-radius: 2px;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  outline: none;
 }
 .profile__button-add:hover {
   opacity: 0.6;

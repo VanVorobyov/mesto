@@ -1,9 +1,10 @@
 // !------------ПЕРЕМЕННЫЕ--------------
 // Элементы
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 const closeButtons = document.querySelectorAll('.popup__close-button');
 const cardTemplate = document.querySelector('#card-template').content; // template карточка
 const cards = document.querySelector('.cards'); // Родитель карточек куда будем добавлять карточки
+
 const popupFormUser = document.querySelector('.popup__form_user');
 const popupFormCard = document.querySelector('.popup__form_add-card');
 // ------------------Попап редактирования пользователя
@@ -28,14 +29,41 @@ const fullImage = document.querySelector('.popup__full-image'); // Полное 
 const fullImageCaption = document.querySelector('.popup__full-image-caption'); //  Описание полного изображения карточки
 
 // !------------ФУНКЦИИ--------------
+const resetPopupForm = (popup) => {
+  const form = popup.querySelector('.popup__form');
+  form.reset();
+};
+
+const handleEscClose = (popup) => {
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  });
+};
+
+const closePopupOverlay = (popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
+  });
+};
+
 // универсальная функция открытия попапа
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
+  closePopupOverlay(popup);
+  handleEscClose(popup);
 };
+
 // универсальная функция закрытия попапов
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleEscClose);
+  resetPopupForm(popup);
 };
+
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
@@ -98,13 +126,9 @@ const handleAddCard = (evt) => {
   const cardTitle = inputCardTitle.value;
   const cardImage = inputCardImage.value;
   const cardElement = createCardElement(cardTitle, cardImage);
-  if (inputCardTitle.value.trim() === '' || inputCardImage.value.trim() === '') {
-    alert('Пожалуйста, заполните форму!');
-  } else {
-    cards.prepend(cardElement);
-    evt.target.reset();
-    closePopup(popupAddCard);
-  }
+  cards.prepend(cardElement);
+  evt.target.reset();
+  closePopup(popupAddCard);
 };
 initialCards.forEach((card) => {
   const cardTitle = card.name;
@@ -114,6 +138,7 @@ initialCards.forEach((card) => {
 });
 
 // !------------СЛУШАТЕЛИ--------------
+editUserInfoButton.addEventListener('click', openUserInfoPopup); // Открыть попап редактирования информации пользователя
 editUserInfoButton.addEventListener('click', openUserInfoPopup); // Открыть попап редактирования информации пользователя
 popupFormUser.addEventListener('submit', editUserInfo); // Отправить форму пользователя
 addCardButton.addEventListener('click', openAddCardPopup); // Открыть попап добавления фотокарточек
