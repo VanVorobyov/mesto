@@ -7,6 +7,9 @@
   background-color: transparent;
   cursor: pointer;
   transition: opacity 0.5s ease;
+  background-image: url(../../../images/heart_icon_empty.svg);
+  background-size: inherit;
+  background-repeat: no-repeat;
 }
 .card__button:hover {
   opacity: 0.5;
