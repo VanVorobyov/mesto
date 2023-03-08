@@ -25,15 +25,22 @@ const isInputValid = (form, element, options) => {
   }
 };
 
+const enableButton = (buttonElement, options) => {
+  buttonElement.classList.remove(options.inactiveButtonClass);
+  buttonElement.removeAttribute('disabled');
+};
+
+const disableButton = (buttonElement, options) => {
+  buttonElement.classList.add(options.inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
+};
 // Функция переключателя кнопки
 const toggleButtonState = (form, buttonElement, options) => {
   const inputList = Array.from(form.querySelectorAll(options.inputSelector));
   if (inputList.every((input) => isValid(input))) {
-    buttonElement.classList.remove(options.inactiveButtonClass);
-    buttonElement.removeAttribute('disabled');
+    enableButton(buttonElement, options);
   } else {
-    buttonElement.classList.add(options.inactiveButtonClass);
-    buttonElement.setAttribute('disabled', true);
+    disableButton(buttonElement, options);
   }
 };
 

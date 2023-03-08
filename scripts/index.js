@@ -8,7 +8,7 @@ const cards = document.querySelector('.cards'); // Родитель карточ
 const popupFormUser = document.querySelector('.popup__form_user');
 const popupFormCard = document.querySelector('.popup__form_add-card');
 // ------------------Попап редактирования пользователя
-const popupUserInfo = document.querySelector('.popup_type-edit');
+const popupUserInfo = document.querySelector('.popup_type_edit');
 const inputUserName = popupUserInfo.querySelector('.popup__input_user-info_username'); // инпут для ввода имени пользователя
 const inputUserAbout = popupUserInfo.querySelector('.popup__input_user-info_about'); // инпут для ввода описания пользователя
 const username = document.querySelector('.profile__user-title'); // Имя пользователя
@@ -17,7 +17,7 @@ const userAbout = document.querySelector('.profile__user-subtitle'); // Опис
 const buttonEditProfile = document.querySelector('.profile__button-edit'); // Кнопка "Редактирование профиля пользователя"
 const buttonSaveUserInfo = popupUserInfo.querySelector('.popup__button_edit-user-info'); // Кнопка "Сохранение профиля пользователя"
 // -----------------Попап добавления карточек
-const popupAddCard = document.querySelector('.popup_type-add-card');
+const popupAddCard = document.querySelector('.popup_type_add-card');
 const inputCardTitle = popupAddCard.querySelector('.popup__input_card_title'); //инпут для заголовка карточки
 const inputCardImage = popupAddCard.querySelector('.popup__input_card_image'); //инпут для загрузки изображения карточки
 // Кнопки:
@@ -38,7 +38,6 @@ const resetPopupForm = (popup) => {
       error.textContent = '';
     }
   });
-
   form.reset();
 };
 // Закрытие на оверлей
@@ -50,25 +49,24 @@ const closePopupOverlay = (popup) => {
   });
 };
 // Обработчик закрытия на клавишу escape
-const handleEscClose = (popup) => {
-  return (evt) => {
-    if (evt.key === 'Escape') {
-      closePopup(popup);
-    }
-  };
+const handleEscClose = (evt) => {
+  if (evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
+  }
 };
 
 // универсальная функция открытия попапа
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', handleEscClose(popup));
+  document.addEventListener('keydown', handleEscClose);
   closePopupOverlay(popup);
 };
 
 // универсальная функция закрытия попапов
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', handleEscClose(popup));
+  document.removeEventListener('keydown', handleEscClose);
   resetPopupForm(popup);
 };
 
@@ -96,8 +94,7 @@ const editUserInfo = (evt) => {
 // Открываем попап добавления фотокарточек
 const openAddCardPopup = () => {
   openPopup(popupAddCard);
-  buttonSaveCard.setAttribute('disabled', true);
-  buttonSaveCard.classList.add(options.inactiveButtonClass);
+  disableButton(buttonSaveCard, options);
 };
 // Открываем попап полного изображения
 const openFullImage = (cardData) => {
