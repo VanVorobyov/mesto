@@ -46,6 +46,7 @@ export default class FormValidator {
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.setAttribute('disabled', true);
   };
+
   // Функция переключателя кнопки
   _toggleButtonState = () => {
     if (this._inputList.every((input) => this._isValid(input))) {
@@ -73,9 +74,6 @@ export default class FormValidator {
   }
 
   enableValidation() {
-    this._formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
     this._setEventListeners();
   }
 }

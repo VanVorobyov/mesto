@@ -2,14 +2,15 @@ import Card from './classes/Card.js';
 import FormValidator from './classes/FormValidator.js';
 
 // !------------ФУНКЦИИ--------------
-// сбрасываем форму после закрытия
-const resetPopupForm = (popup) => {
-  const form = popup.querySelector('.popup__form');
-  const errorClear = new FormValidator(options, form);
-  errorClear.clearErrors();
-  form.reset();
-};
-// Закрытие на оверлей
+//включаем для каждой формы валидаторы
+const formEditUserValidator = new FormValidator(options, popupFormUser);
+formEditUserValidator.enableValidation();
+
+const formAddImageValidator = new FormValidator(options, popupFormCard);
+formAddImageValidator.enableValidation();
+
+// Сбросить данные формы
+// Закрыть на оверлей
 const closePopupOverlay = (popup) => {
   popup.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('popup_opened')) {
@@ -25,18 +26,17 @@ const handleEscClose = (evt) => {
   }
 };
 
-// универсальная функция открытия попапа
+// Универсальная функция открытия попапа
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handleEscClose);
   closePopupOverlay(popup);
 };
 
-// универсальная функция закрытия попапов
+// Универсальная функция закрытия попапов
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', handleEscClose);
-  resetPopupForm(popup);
 };
 
 buttonsClose.forEach((button) => {
@@ -49,6 +49,7 @@ buttonsClose.forEach((button) => {
 const openUserInfoPopup = () => {
   inputUserName.value = username.textContent;
   inputUserAbout.value = userAbout.textContent;
+  formEditUserValidator.clearErrors();
   openPopup(popupUserInfo);
 };
 // Редактирование пользователя
@@ -62,6 +63,8 @@ const editUserInfo = (evt) => {
 //КАРТОЧКИ
 // Открываем попап добавления фотокарточек
 const openAddCardPopup = () => {
+  formAddImageValidator.clearErrors();
+  popupFormCard.reset();
   openPopup(popupAddCard);
 };
 // Открываем попап полного изображения
@@ -93,19 +96,10 @@ const renderCards = () => {
   });
 };
 
-const enableValidationForms = () => {
-  const formEditUserValidator = new FormValidator(options, popupFormUser);
-  formEditUserValidator.enableValidation();
-
-  const formAddImageValidator = new FormValidator(options, popupFormCard);
-  formAddImageValidator.enableValidation();
-};
+renderCards();
 
 // !------------СЛУШАТЕЛИ--------------
 buttonEditProfile.addEventListener('click', openUserInfoPopup); // Открыть попап редактирования информации пользователя
 buttonAddCard.addEventListener('click', openAddCardPopup); // Открыть попап добавления фотокарточек
 popupFormUser.addEventListener('submit', editUserInfo); // Отправить форму пользователя
 popupFormCard.addEventListener('submit', handleAddCard); // Отправить форму фотокарточки пользователя
-
-renderCards();
-enableValidationForms();
