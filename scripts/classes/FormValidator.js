@@ -66,7 +66,7 @@ export default class FormValidator {
     });
   };
 
-  clearErrors() {
+  resetValidation() {
     this._inputList.forEach((input) => {
       this._hideInputError(input);
     });

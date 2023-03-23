@@ -3,6 +3,7 @@ export default class Card {
     this._name = cardData.name;
     this._link = cardData.link;
     this._handleCardClick = handleCardClick;
+    this._cardTemplate = document.querySelector('#card-template');
     this._element = this._getTemplate();
     this._image = this._element.querySelector('.card__image');
     this._elementLike = this._element.querySelector('.card__button');
@@ -10,11 +11,11 @@ export default class Card {
   }
 
   _getTemplate() {
-    const cardElement = document.querySelector('#card-template').content.querySelector('.card').cloneNode(true);
+    const cardElement = this._cardTemplate.content.querySelector('.card').cloneNode(true);
     return cardElement;
   }
 
-  _likeCard = () => {
+  _toggleLike = () => {
     this._elementLike.classList.toggle('card__button_icon-fill');
   };
 
@@ -24,7 +25,7 @@ export default class Card {
 
   _setEventListeners() {
     this._elementDelete.addEventListener('click', this._deleteCard);
-    this._elementLike.addEventListener('click', this._likeCard);
+    this._elementLike.addEventListener('click', this._toggleLike);
     this._image.addEventListener('click', () => this._handleCardClick({ name: this._name, link: this._link }));
   }
 
