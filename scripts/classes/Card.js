@@ -1,26 +1,22 @@
 export default class Card {
-  constructor(cardData, handleCardClick) {
+  constructor(cardData, cardConfig, handleCardClick) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._handleCardClick = handleCardClick;
-    this._cardTemplate = document.querySelector('#card-template');
-    this._element = this._getTemplate();
-    this._image = this._element.querySelector('.card__image');
-    this._elementLike = this._element.querySelector('.card__button');
-    this._elementDelete = this._element.querySelector('.card__delete-button');
-  }
-
-  _getTemplate() {
-    const cardElement = this._cardTemplate.content.querySelector('.card').cloneNode(true);
-    return cardElement;
+    this._cardConfig = cardConfig;
+    this._cardTemplate = document.querySelector(cardConfig.cardTemplate);
+    this._cardElement = this._cardTemplate.content.querySelector(cardConfig.cardElementSelector).cloneNode(true);
+    this._image = this._cardElement.querySelector(cardConfig.imageSelector);
+    this._elementLike = this._cardElement.querySelector(cardConfig.buttonLikeSelector);
+    this._elementDelete = this._cardElement.querySelector(cardConfig.buttonDeleteSelector);
   }
 
   _toggleLike = () => {
-    this._elementLike.classList.toggle('card__button_icon-fill');
+    this._elementLike.classList.toggle(this._cardConfig.buttonToggleClass);
   };
 
   _deleteCard = () => {
-    this._element.closest('.card').remove();
+    this._cardElement.closest(this._cardConfig.cardElementSelector).remove();
   };
 
   _setEventListeners() {
@@ -31,10 +27,10 @@ export default class Card {
 
   generateCard() {
     this._setEventListeners();
-    this._element.querySelector('.card__title').textContent = this._name;
+    this._cardElement.querySelector(this._cardConfig.titleSelector).textContent = this._name;
     this._image.src = this._link;
     this._image.alt = this._name;
 
-    return this._element;
+    return this._cardElement;
   }
 }
