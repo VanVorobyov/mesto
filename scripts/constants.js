@@ -40,4 +40,14 @@ const popupElementsFullImage = {
   fullImageCaption: document.querySelector('.popup__full-image-caption'),
 };
 
-export { validationOptions, popupElementsCommon, popupElementsUser, popupElementsAddCard, popupElementsFullImage };
+const cardConfig = {
+  cardTemplate: '#card-template',
+  cardElementSelector: '.card',
+  imageSelector: '.card__image',
+  titleSelector: '.card__title',
+  buttonLikeSelector: '.card__button',
+  buttonDeleteSelector: '.card__delete-button',
+  buttonToggleClass: 'card__button_icon-fill',
+};
+
+export { validationOptions, popupElementsCommon, popupElementsUser, popupElementsAddCard, popupElementsFullImage, cardConfig };

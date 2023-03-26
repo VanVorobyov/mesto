@@ -1,7 +1,7 @@
 // Импортирование классов и констант
 import Card from './classes/Card.js';
 import FormValidator from './classes/FormValidator.js';
-import { validationOptions, popupElementsCommon, popupElementsUser, popupElementsAddCard, popupElementsFullImage } from './constants.js';
+import { validationOptions, popupElementsCommon, popupElementsUser, popupElementsAddCard, popupElementsFullImage, cardConfig } from './constants.js';
 import { initialCards } from './cards.js';
 
 const formValidators = {};
@@ -70,12 +70,12 @@ const openAddCardPopup = () => {
 const openFullImage = (cardData) => {
   popupElementsFullImage.fullImage.src = cardData.link;
   popupElementsFullImage.fullImageCaption.textContent = cardData.name;
-  popupElementsFullImage.fullImageCaption.alt = cardData.name;
+  popupElementsFullImage.fullImage.alt = cardData.name;
   openPopup(popupElementsFullImage.popupOpenImageCard);
 };
 
-const createCard = (cardData) => {
-  const card = new Card(cardData, openFullImage);
+const createCard = (cardData, cardConfig) => {
+  const card = new Card(cardData, cardConfig, openFullImage);
   const cardElement = card.generateCard();
   return cardElement;
 };
@@ -84,7 +84,7 @@ const handleAddCard = (evt) => {
   evt.preventDefault();
   const name = popupElementsAddCard.inputCardTitle.value;
   const link = popupElementsAddCard.inputCardImage.value;
-  const cardElement = createCard({ name, link });
+  const cardElement = createCard({ name, link }, cardConfig);
   popupElementsCommon.cards.prepend(cardElement);
   evt.target.reset();
   closePopup(popupElementsAddCard.popupAddCard);
@@ -92,7 +92,7 @@ const handleAddCard = (evt) => {
 
 const renderCards = () => {
   initialCards.forEach((cardData) => {
-    const cardElement = createCard(cardData);
+    const cardElement = createCard(cardData, cardConfig);
     popupElementsCommon.cards.prepend(cardElement);
   });
 };
