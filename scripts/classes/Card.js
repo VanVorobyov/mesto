@@ -4,11 +4,11 @@ export default class Card {
     this._link = cardData.link;
     this._handleCardClick = handleCardClick;
     this._cardConfig = cardConfig;
-    this._cardTemplate = document.querySelector(cardConfig.cardTemplate);
-    this._cardElement = this._cardTemplate.content.querySelector(cardConfig.cardElementSelector).cloneNode(true);
-    this._image = this._cardElement.querySelector(cardConfig.imageSelector);
-    this._elementLike = this._cardElement.querySelector(cardConfig.buttonLikeSelector);
-    this._elementDelete = this._cardElement.querySelector(cardConfig.buttonDeleteSelector);
+    this._cardTemplate = document.querySelector(this._cardConfig.cardTemplate);
+    this._cardElement = this._cardTemplate.content.querySelector(this._cardConfig.cardElementSelector).cloneNode(true);
+    this._image = this._cardElement.querySelector(this._cardConfig.imageSelector);
+    this._elementLike = this._cardElement.querySelector(this._cardConfig.buttonLikeSelector);
+    this._elementDelete = this._cardElement.querySelector(this._cardConfig.buttonDeleteSelector);
   }
 
   _toggleLike = () => {
@@ -20,7 +20,7 @@ export default class Card {
   };
 
   _setEventListeners() {
-    this._elementDelete.addEventListener('click', this._deleteCard);
+    this._elementDelete.addEventListener('click', this._deleteCard, { once: true });
     this._elementLike.addEventListener('click', this._toggleLike);
     this._image.addEventListener('click', () => this._handleCardClick({ name: this._name, link: this._link }));
   }
