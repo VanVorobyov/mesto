@@ -15,18 +15,18 @@ const popupElementsCommon = {
 };
 
 const popupElementsUser = {
-  popupUserInfo: document.querySelector('.popup_type_edit'),
+  popupUserInfo: '.popup_type_edit',
   popupFormUser: document.querySelector('.popup__form_user'),
   inputUserName: document.querySelector('.popup_type_edit .popup__input_user-info_username'),
   inputUserAbout: document.querySelector('.popup_type_edit .popup__input_user-info_about'),
-  username: document.querySelector('.profile__user-title'),
-  userAbout: document.querySelector('.profile__user-subtitle'),
+  usernameSelector: '.profile__user-title',
+  userAboutSelector: '.profile__user-subtitle',
   buttonEditProfile: document.querySelector('.profile__button-edit'),
   buttonSaveUserInfo: document.querySelector('.popup_type_edit .popup__button_edit-user-info'),
 };
 
 const popupElementsAddCard = {
-  popupAddCard: document.querySelector('.popup_type_add-card'),
+  popupAddCard: '.popup_type_add-card',
   popupFormCard: document.querySelector('.popup__form_add-card'),
   inputCardTitle: document.querySelector('.popup_type_add-card .popup__input_card_title'),
   inputCardImage: document.querySelector('.popup_type_add-card .popup__input_card_image'),
@@ -35,9 +35,9 @@ const popupElementsAddCard = {
 };
 
 const popupElementsFullImage = {
-  popupOpenImageCard: document.querySelector('.popup_type_opened-image'),
-  fullImage: document.querySelector('.popup__full-image'),
-  fullImageCaption: document.querySelector('.popup__full-image-caption'),
+  popupOpenImageCard: '.popup_type_opened-image',
+  fullImage: '.popup__full-image',
+  fullImageCaption: '.popup__full-image-caption',
 };
 
 const cardConfig = {
