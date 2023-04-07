@@ -29,11 +29,9 @@ const enableValidation = (config) => {
   });
 };
 
-const openPopupWithImage = (item) => {
-  const popupWithImage = new PopupWithImage('.popup_type_opened-image');
-  popupWithImage.open(item);
-  popupWithImage.setEventListeners();
-};
+const popupWithImage = new PopupWithImage('.popup_type_opened-image');
+const openPopupWithImage = (item) => popupWithImage.open(item);
+popupWithImage.setEventListeners();
 
 const createCard = (cardData) => {
   const card = new Card(cardData, cardConfig, openPopupWithImage);
@@ -61,8 +59,7 @@ const userInfo = new UserInfo({
 });
 // Открывает попап редактирования профиля
 const openPopupEditProfile = ({ name, about }) => {
-  popupElementsUser.inputUserName.value = name;
-  popupElementsUser.inputUserAbout.value = about;
+  popupEditUserInfo.setInputValues({ name, about });
   formValidators['user-form'].resetValidation();
   popupEditUserInfo.open();
 };
@@ -73,9 +70,7 @@ const popupEditUserInfo = new PopupWithForm(popupElementsUser.popupUserInfo, (da
 });
 popupEditUserInfo.setEventListeners();
 
-popupElementsUser.buttonEditProfile.addEventListener('click', () => {
-  openPopupEditProfile(userInfo.getUserInfo());
-});
+popupElementsUser.buttonEditProfile.addEventListener('click', () => openPopupEditProfile(userInfo.getUserInfo()));
 
 // Попап добавления карточки
 const popupAddImage = new PopupWithForm(popupElementsAddCard.popupAddCard, (cardData) => {
@@ -89,3 +84,4 @@ popupElementsAddCard.buttonAddCard.addEventListener('click', () => {
 });
 
 enableValidation(validationOptions);
+[];
