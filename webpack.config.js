@@ -17,7 +17,7 @@ module.exports = {
     static: path.resolve(__dirname, './dist'),
     open: true,
     compress: true,
-    port: 8060,
+    port: 8055,
   },
   module: {
     rules: [
@@ -52,4 +52,5 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
   ],
+  devtool: 'source-map',
 };
