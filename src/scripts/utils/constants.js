@@ -1,4 +1,4 @@
-const validationOptions = {
+export const validationOptions = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
@@ -8,13 +8,13 @@ const validationOptions = {
   errorClass: 'popup__error_visible',
 };
 
-const popupElementsCommon = {
+export const popupElementsCommon = {
   popups: document.querySelectorAll('.popup'),
   buttonsClose: document.querySelectorAll('.popup__close-button'),
   cards: document.querySelector('.cards'),
 };
 
-const popupElementsUser = {
+export const popupElementsUser = {
   popupUserInfo: '.popup_type_edit',
   popupFormUser: document.querySelector('.popup__form_user'),
   inputUserName: document.querySelector('.popup_type_edit .popup__input_user-info_username'),
@@ -25,7 +25,7 @@ const popupElementsUser = {
   buttonSaveUserInfo: document.querySelector('.popup_type_edit .popup__button_edit-user-info'),
 };
 
-const popupElementsAddCard = {
+export const popupElementsAddCard = {
   popupAddCard: '.popup_type_add-card',
   popupFormCard: document.querySelector('.popup__form_add-card'),
   inputCardTitle: document.querySelector('.popup_type_add-card .popup__input_card_title'),
@@ -34,20 +34,19 @@ const popupElementsAddCard = {
   buttonSaveCard: document.querySelector('.popup_type_add-card .popup__button_add-image'),
 };
 
-const popupElementsFullImage = {
+export const popupElementsFullImage = {
   popupOpenImageCard: '.popup_type_opened-image',
   fullImage: '.popup__full-image',
   fullImageCaption: '.popup__full-image-caption',
 };
 
-const cardConfig = {
+export const cardConfig = {
   cardTemplate: '#card-template',
   cardElementSelector: '.card',
   imageSelector: '.card__image',
+  counterSelector: '.card__counter',
   titleSelector: '.card__title',
   buttonLikeSelector: '.card__button',
   buttonDeleteSelector: '.card__delete-button',
   buttonToggleClass: 'card__button_icon-fill',
 };
-
-export { validationOptions, popupElementsCommon, popupElementsUser, popupElementsAddCard, popupElementsFullImage, cardConfig };

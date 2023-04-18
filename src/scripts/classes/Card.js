@@ -7,6 +7,7 @@ export default class Card {
     this._cardTemplate = document.querySelector(this._cardConfig.cardTemplate);
     this._cardElement = this._cardTemplate.content.querySelector(this._cardConfig.cardElementSelector).cloneNode(true);
     this._image = this._cardElement.querySelector(this._cardConfig.imageSelector);
+    this._counter = this._cardElement.querySelector(this._cardConfig.counterSelector);
     this._elementLike = this._cardElement.querySelector(this._cardConfig.buttonLikeSelector);
     this._elementDelete = this._cardElement.querySelector(this._cardConfig.buttonDeleteSelector);
   }
