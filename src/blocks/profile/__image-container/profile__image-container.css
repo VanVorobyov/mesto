@@ -1,0 +1,13 @@
+.profile__image-container {
+  border-radius: 50%;
+  height: 120px;
+  overflow: hidden;
+  position: relative;
+  width: 120px;
+  margin: 0 30px 0 0;
+}
+@media screen and (max-width: 767px) {
+  .profile__image-container {
+    margin: 0 0 26px 0;
+  }
+}

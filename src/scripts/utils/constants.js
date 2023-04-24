@@ -21,8 +21,11 @@ export const popupElementsUser = {
   inputUserAbout: document.querySelector('.popup_type_edit .popup__input_user-info_about'),
   usernameSelector: '.profile__user-title',
   userAboutSelector: '.profile__user-subtitle',
+  userAvatarSelector: '.profile__image',
   buttonEditProfile: document.querySelector('.profile__button-edit'),
   buttonSaveUserInfo: document.querySelector('.popup_type_edit .popup__button_edit-user-info'),
+  userAvatar: '.popup__avatar',
+  buttonAvatar: document.querySelector('.profile__button-avatar'),
 };
 
 export const popupElementsAddCard = {
@@ -40,6 +43,11 @@ export const popupElementsFullImage = {
   fullImageCaption: '.popup__full-image-caption',
 };
 
+export const popupElementsConfirmDelete = {
+  popupConfirmDelete: '.popup__confirm-delete',
+  buttonConfirmDelete: '.popup__button_confirm-delete',
+};
+
 export const cardConfig = {
   cardTemplate: '#card-template',
   cardElementSelector: '.card',
@@ -49,4 +57,5 @@ export const cardConfig = {
   buttonLikeSelector: '.card__button',
   buttonDeleteSelector: '.card__delete-button',
   buttonToggleClass: 'card__button_icon-fill',
+  buttonDeleteToggleClass: 'card__delete-button_hidden',
 };

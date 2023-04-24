@@ -1,0 +1,14 @@
+.profile__button-avatar_icon {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url(../../../../images/button-edit-icon.svg);
+  background-size: 26px;
+  border-radius: inherit;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.profile__button-avatar_icon:hover {
+  opacity: 1;
+}

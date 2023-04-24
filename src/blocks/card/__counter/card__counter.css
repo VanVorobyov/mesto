@@ -1,6 +1,6 @@
 .card__counter {
   max-width: inherit;
-  margin: 0;
+  margin: 0 5px 0 0;
   display: inline;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;

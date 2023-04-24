@@ -6,21 +6,20 @@ export default class UserInfo {
   }
 
   getUserInfo() {
-    const userNameValue = this._name.textContent;
-    const userAboutValue = this._about.textContent;
-    return { name: userNameValue, about: userAboutValue };
+    return {
+      name: this._name.textContent,
+      about: this._about.textContent,
+    };
   }
 
-  setUserInfo({ name, about }) {
-    this._name.textContent = name;
-    this._about.textContent = about;
+  getUserId() {
+    return this._id;
   }
 
-  setUserAvatar(avatar) {
-    this._avatar.src = avatar;
-  }
-
-  setUserId(userId) {
-    this._userId = userId;
+  setUserInfo(info) {
+    this._name.textContent = info.name;
+    this._about.textContent = info.about;
+    this._avatar.src = info.avatar;
+    this._id = info._id;
   }
 }

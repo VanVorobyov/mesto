@@ -14,6 +14,9 @@
 @import url(../blocks/profile/__button-edit/profile__button-edit.css);
 @import url(../blocks/profile/__user-subtitle/prosile__user-subtitle.css);
 @import url(../blocks/profile/__button-add/profile__button-add.css);
+@import url(../blocks/profile/__button-avatar/profile__button-avatar.css);
+@import url(../blocks/profile/__image-container/profile__image-container.css);
+@import url(../blocks/profile/__button-avatar/_icon/profile__button-avatar_icon.css);
 /* Elements */
 @import url(../blocks/elements/elements.css);
 /* Cards */
