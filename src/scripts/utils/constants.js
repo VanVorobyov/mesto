@@ -24,7 +24,7 @@ export const popupElementsUser = {
   userAvatarSelector: '.profile__image',
   buttonEditProfile: document.querySelector('.profile__button-edit'),
   buttonSaveUserInfo: document.querySelector('.popup_type_edit .popup__button_edit-user-info'),
-  userAvatar: '.popup__avatar',
+  userAvatar: '.popup_avatar',
   buttonAvatar: document.querySelector('.profile__button-avatar'),
 };
 
@@ -44,7 +44,7 @@ export const popupElementsFullImage = {
 };
 
 export const popupElementsConfirmDelete = {
-  popupConfirmDelete: '.popup__confirm-delete',
+  popupConfirmDelete: '.popup_confirm-delete',
   buttonConfirmDelete: '.popup__button_confirm-delete',
 };
 
