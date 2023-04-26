@@ -1,16 +1,16 @@
 // Импортирование классов и констант
 import '../pages/index.css';
 import * as constants from '../scripts/utils/constants.js';
-import Api from '../scripts/classes/Api.js';
-import Card from '../scripts/classes/Card.js';
-import FormValidator from '../scripts/classes/FormValidator.js';
-import PopupWithForm from '../scripts/classes/PopupWithForm.js';
-import PopupWithImage from '../scripts/classes/PopupWithImage.js';
-import PopupWithConfirm from '../scripts/classes/PopupWithConfirm.js';
+import Api from '../scripts/components/Api.js';
+import Card from '../scripts/components/Card.js';
+import FormValidator from '../scripts/components/FormValidator.js';
+import PopupWithForm from '../scripts/components/PopupWithForm.js';
+import PopupWithImage from '../scripts/components/PopupWithImage.js';
+import PopupWithConfirm from '../scripts/components/PopupWithConfirm.js';
 
-import Section from '../scripts/classes/Section.js';
-import Popup from '../scripts/classes/Popup.js';
-import UserInfo from '../scripts/classes/UserInfo.js';
+import Section from '../scripts/components/Section.js';
+import Popup from '../scripts/components/Popup.js';
+import UserInfo from '../scripts/components/UserInfo.js';
 
 // Валидация
 const formValidators = {};
@@ -38,6 +38,8 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     cardList.renderItems(cards);
   })
   .catch((err) => console.log(err));
+
+// -----------------------------ФУНКЦИИ------------------------------------------
 
 function сreateCard(data) {
   const card = new Card(data, constants.cardConfig, {
@@ -71,20 +73,31 @@ const cardList = new Section(
   constants.popupElementsCommon.cards
 );
 
+function handleSubmit(request, popupInstance, loadingText = 'Сохранение...') {
+  popupInstance.renderLoading(true, loadingText);
+  request()
+    .then(() => {
+      popupInstance.close();
+    })
+    .catch((err) => {
+      console.error(`Ошибка: ${err}`);
+    })
+    .finally(() => {
+      popupInstance.renderLoading(false);
+    });
+}
+
 // ------------------------------ПОПАПЫ--------------------------------
 
 // Попап создания карточки
 const popupAddImage = new PopupWithForm(constants.popupElementsAddCard.popupAddCard, {
-  handleSubmitForm: (inputValuesList) => {
-    popupAddImage.renderLoading(true);
-    api
-      .postCard({ name: inputValuesList.name, link: inputValuesList.link })
-      .then((res) => {
+  handleSubmitForm: function handleAddCardFormSubmit(inputValues) {
+    function makeRequest() {
+      return api.postCard({ name: inputValues.name, link: inputValues.link }).then((res) => {
         cardList.addItem(сreateCard(res));
-        popupAddImage.close();
-      })
-      .catch((err) => console.log(err))
-      .finally(() => popupAddImage.renderLoading(false));
+      });
+    }
+    handleSubmit(makeRequest, popupAddImage);
   },
 });
 
@@ -121,42 +134,18 @@ const userInfo = new UserInfo({
 });
 //-----------------------------------------------------------------
 
-// function handleSubmit(request, popupInstance, loadingText = 'Сохранение...') {
-//   popupInstance.renderLoading(true, loadingText);
-//   request()
-//     .then(() => {
-//       popupInstance.close();
-//     })
-//     .catch((err) => {
-//       console.error(`Ошибка: ${err}`);
-//     })
-//     .finally(() => {
-//       popupInstance.renderLoading(false);
-//     });
-// }
-// function handleProfileFormSubmit(inputValues) {
-//   function makeRequest() {
-//     return api.editProfile(inputValues).then((userData) => {
-//       userInfo.setUserInfo(userData);
-//     });
-//   }
-//   handleSubmit(makeRequest, profilePopup);
-// }
-
 //----------------------------------------------------------------
 const popupEditUserInfo = new PopupWithForm(constants.popupElementsUser.popupUserInfo, {
-  handleSubmitForm: (inputValuesList) => {
-    popupEditUserInfo.renderLoading(true);
-    api
-      .setUserInfo(inputValuesList)
-      .then((res) => {
-        userInfo.setUserInfo(res);
-        popupEditUserInfo.close();
-      })
-      .catch((err) => console.log(err))
-      .finally(() => popupEditUserInfo.renderLoading(false));
+  handleSubmitForm: function handleProfileFormSubmit(inputValues) {
+    function makeRequest() {
+      return api.setUserInfo(inputValues).then((userData) => {
+        userInfo.setUserInfo(userData);
+      });
+    }
+    handleSubmit(makeRequest, popupEditUserInfo);
   },
 });
+
 popupEditUserInfo.setEventListeners();
 // Открывает попап редактирования профиля
 const openPopupEditProfile = (data) => {
@@ -167,16 +156,13 @@ const openPopupEditProfile = (data) => {
 
 //Попап Аватара
 const avatarPopup = new PopupWithForm(constants.popupElementsUser.userAvatar, {
-  handleSubmitForm: (inputValuesList) => {
-    avatarPopup.renderLoading(true);
-    api
-      .changeAvatar(inputValuesList.avatar)
-      .then((res) => {
+  handleSubmitForm: function handleAvatarFormSubmit(inputValues) {
+    function makeRequest() {
+      return api.changeAvatar(inputValues.avatar).then((res) => {
         userInfo.setUserInfo(res);
-        avatarPopup.close();
-      })
-      .catch((err) => console.log(err))
-      .finally(() => avatarPopup.renderLoading(false));
+      });
+    }
+    handleSubmit(makeRequest, avatarPopup);
   },
 });
 avatarPopup.setEventListeners();
