@@ -8,7 +8,7 @@ export default class FormValidator {
     this._errorClass = options.errorClass;
     this._formElement = formElement;
     this._inputList = Array.from(formElement.querySelectorAll(options.inputSelector));
-    this._buttonElement = this._formElement.querySelector(`.popup__button`);
+    this._buttonElement = this._formElement.querySelector(options.submitButtonSelector);
   }
 
   _showInputError = (input) => {
