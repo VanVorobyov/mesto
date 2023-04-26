@@ -23,4 +23,4 @@
 Добавлена возможность доавблять и удалять карточки пользователя, а также открывать полное изображение.
 
 Ссылка на GitHub Pages
-https://vanvorobyov.github.io/mesto/index.html
+https://vanvorobyov.github.io/mesto/
